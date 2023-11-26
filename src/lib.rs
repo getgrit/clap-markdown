@@ -417,7 +417,9 @@ fn write_arg_markdown(buffer: &mut String, arg: &clap::Arg) -> fmt::Result {
         },
     }
 
-    if let Some(help) = arg.get_help() {
+    if let Some(long_help) = arg.get_long_help() {
+        writeln!(buffer, " — {long_help}")?;
+    } else if let Some(help) = arg.get_help() {
         writeln!(buffer, " — {help}")?;
     } else {
         writeln!(buffer)?;
