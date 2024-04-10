@@ -89,7 +89,7 @@ fn write_help_markdown(
         Some(ref title) => title.to_owned(),
         None => format!("Command-Line Help for {title_name}"),
     };
-    writeln!(buffer, "# {title}\n",).unwrap();
+    writeln!(buffer, "---\ntitle: {title}\n---\n",).unwrap();
 
     writeln!(
         buffer,
